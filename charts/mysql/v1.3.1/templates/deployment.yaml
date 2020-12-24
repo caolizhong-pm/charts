@@ -72,8 +72,6 @@ spec:
       - name: {{ template "mysql.fullname" . }}
         image: "{{ .Values.image }}:{{ .Values.imageTag }}"
         imagePullPolicy: {{ .Values.imagePullPolicy | quote }}
-
-        {{- with .Values.args }}
         args: ["--character-set-server=utf8mb4"]
         resources:
 {{ toYaml .Values.resources | indent 10 }}
