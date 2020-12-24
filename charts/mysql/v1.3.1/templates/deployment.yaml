@@ -74,11 +74,7 @@ spec:
         imagePullPolicy: {{ .Values.imagePullPolicy | quote }}
 
         {{- with .Values.args }}
-        args:
-        {{- range . }}
-          - {{ . | quote }}
-        {{- end }}
-        {{- end }}
+        args: ["--character-set-server=utf8mb4"]
         resources:
 {{ toYaml .Values.resources | indent 10 }}
         env:
